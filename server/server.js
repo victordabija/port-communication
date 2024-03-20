@@ -1,6 +1,6 @@
 const net = require('net');
 
-const port = '1000'
+const port = '8080'
 
 const server = net.createServer(socket => {
     const clientAddress = socket.remoteAddress

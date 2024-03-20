@@ -1,7 +1,7 @@
 import socket
 
 ip = '172.30.0.10'
-port = 1000
+port = 8080
 
 client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
