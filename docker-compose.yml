@@ -6,16 +6,33 @@ services:
         build:
             context: ./server
             dockerfile: Dockerfile
+        tty: true
+        expose:
+            - 8080
         ports:
             - "8080:8080"
+        volumes:
+            -   ./server:/server
         networks:
             default:
-                ipv4_address: 192.168.0.2
+                ipv4_address: 172.30.0.10
+
+    client:
+        container_name: client
+        build:
+            context: ./client
+            dockerfile: Dockerfile
+        tty: true
+        volumes:
+            -   ./client:/client
+        networks:
+            default:
+                ipv4_address: 172.30.0.20
 
 networks:
     default:
         driver: bridge
         ipam:
             config:
-                -   subnet: 192.168.0.0/24
-                    gateway: 192.168.0.1
+                -   subnet: 172.30.0.0/24
+                    gateway: 172.30.0.1
