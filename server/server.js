@@ -1,13 +1,13 @@
 const net = require('net');
 
-const port = '8080'
+const port = '1000'
 
 const server = net.createServer(socket => {
-    console.log('Client connected');
+    const clientAddress = socket.remoteAddress
+    console.log(`Client connected: ${clientAddress}`);
 
     socket.on('data', data => {
         console.log('Received:', data.toString());
-        socket.write('Echo: ' + data);
     });
 
     socket.on('end', () => {

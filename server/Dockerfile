@@ -1,9 +1,10 @@
 FROM node
 
-WORKDIR /app
+VOLUME /server
 
-COPY . /app
+WORKDIR /server
 
 EXPOSE 8080
 
-CMD ["npm", "start"]
+RUN apt -y update
+RUN apt -y install net-tools
