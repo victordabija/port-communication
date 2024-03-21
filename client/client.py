@@ -7,6 +7,8 @@ client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
 connect = client_socket.connect((ip, port))
 
+print('Connected to server: ' + ip + ':' + str(port))
+
 while True:
     message = input("Enter message to send (or 'quit' to exit : ")
     if message.lower() == 'quit':
